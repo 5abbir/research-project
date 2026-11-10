@@ -1,0 +1,4 @@
+column,predictors,n_fit_rows,best_params,cv_mse_best,cv_mse_mean_predictor,cv_r2_vs_mean_predictor,better_than_mean_predictor,n_filled_train,n_filled_test,observed_mean,observed_sd,filled_train_mean,filled_train_sd,filled_test_mean,seconds
+Trihalomethanes,Chloramines;Conductivity;Organic_carbon,2486,"{""max_depth"": 10, ""min_samples_leaf"": 25, ""n_estimators"": 300}",268.735599,262.893864,-0.02222,False,134,28,66.1427,16.2152,66.4197,1.8691,65.9691,14.4
+ph,Hardness;Conductivity;Organic_carbon;Trihalomethanes,2233,"{""max_depth"": null, ""min_samples_leaf"": 25, ""n_estimators"": 300}",2.50787,2.535632,0.01095,True,387,104,7.0877,1.592,7.0696,0.3097,7.0765,14.8
+Sulfate,Chloramines;Organic_carbon;ph,1995,"{""max_depth"": 10, ""min_samples_leaf"": 25, ""n_estimators"": 300}",1753.255627,1725.876221,-0.01586,False,625,156,333.9878,41.5262,333.7581,6.4713,334.0057,14.7

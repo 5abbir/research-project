@@ -1,0 +1,7 @@
+variant,model,TN,FP,FN,TP,n_eval
+S2a,XGBoost,134,49,77,40,300
+S2a,RandomForest,154,29,86,31,300
+S2a,AdaBoost,164,19,102,15,300
+S2b,XGBoost,124,59,65,52,300
+S2b,RandomForest,126,57,73,44,300
+S2b,AdaBoost,80,103,46,71,300

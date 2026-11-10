@@ -1,0 +1,32 @@
+mode: full
+SMOTE train: ../results/s2/s2_smote_train_L.csv  sha256 b9eb679d85b438eb0fc6073d987d77c9e353a8c110db1743c41446b0fcc9cc36
+FRS selection json: ../results/s2/s3_frs_selected_L.json  sha256 29b81236bcefe6a317a019ecb453d5d10ad2a1c23f94357d25ec97fb9b3a297b
+fit rows 3196 {0: 1598, 1: 1598}
+eval rows 656 {0: 400, 1: 256}
+S2b-ref (9 features): ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity
+S3-paperM1 (7 features): ph, Solids, Chloramines, Sulfate, Conductivity, Trihalomethanes, Turbidity
+S3-own7 (7 features): Hardness, Solids, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity
+S3-paperM2 (7 features): Hardness, Solids, Chloramines, Conductivity, Organic_carbon, Trihalomethanes, Turbidity
+S3-stab7 (7 features): Hardness, Solids, Chloramines, Conductivity, Organic_carbon, Trihalomethanes, Turbidity
+test file ../results/s2/s2_filled_test_L.csv  sha256 before 0e3e5f0882e76ae0ca4f36d02cc27564e5ec7e588def3c1c0673c3387ac90a0e
+
+checks:
+PASS: feature list excludes target, row_id and is_synthetic (9 features)
+PASS: same feature columns in S2a and S2b train files ()
+PASS: no NaN in any training feature ()
+PASS: FRS json mode matches this run's mode (json mode full)
+PASS: FRS run read the full SMOTE train file (sha256 in run info = sha256 of s2_smote_train_L.csv) (provenance: selection was computed on these train rows)
+PASS: FRS run info says test rows used = 0 ()
+PASS: S2b-ref: valid feature names, no duplicates, size 9 (ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity)
+PASS: S3-paperM1: valid feature names, no duplicates, size 7 (Sulfate, Trihalomethanes, Conductivity, Chloramines, Solids, Turbidity, ph)
+PASS: S3-own7: valid feature names, no duplicates, size 7 (Sulfate, Solids, Turbidity, Conductivity, Trihalomethanes, Organic_carbon, Hardness)
+PASS: S3-paperM2: valid feature names, no duplicates, size 7 (Organic_carbon, Trihalomethanes, Chloramines, Solids, Hardness, Conductivity, Turbidity)
+PASS: S3-stab7: valid feature names, no duplicates, size 7 (Hardness, Solids, Turbidity, Organic_carbon, Conductivity, Trihalomethanes, Chloramines)
+PASS: synthetic rows have row_id -1 and originals have row_id >= 0 (576 synthetic)
+PASS: S2b train classes balanced ({0: 1598, 1: 1598})
+PASS: test columns contain all features ()
+PASS: no NaN in test features (656 rows)
+PASS: test row ids disjoint from train row ids ()
+PASS: test row ids equal the S1 test row ids (656 ids in S1 file)
+PASS: test file unchanged by this script (sha256 before = after) ()
+PASS: S2b-ref reproduces the stored S2b probabilities (tolerance 1e-9) (max abs diff 1.11e-16)

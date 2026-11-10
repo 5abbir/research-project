@@ -1,0 +1,2 @@
+tool,seed,best_model,cv_auc,test_auc,test_f1,test_bal_acc,test_acc,seconds
+autogluon,0,RandomForestGini_BAG_L1,0.6780739255772259,0.6418310546875001,0.3829787234042553,0.580625,0.6463414634146342,9.4013192653656

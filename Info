@@ -1,0 +1,34 @@
+=== 1. Missing values per column ===
+                 n_missing  percent
+Sulfate                625     23.9
+ph                     387     14.8
+Trihalomethanes        134      5.1
+
+Rows with at least one blank: 1013 of 2620 (39%)
+Complete rows (what 'drop rows' would keep): 1607
+
+=== 2. Does a blank relate to the answer? ===
+column            rate(answer=1) when blank | when present | chi-square p-value
+ph                0.364                     | 0.395        | 0.286
+Sulfate           0.371                     | 0.396        | 0.288
+Trihalomethanes   0.328                     | 0.393        | 0.158
+(small p-value, e.g. < 0.05, would mean 'blank' carries information about the answer)
+
+=== 3. Do blanks in different columns happen together? (correlation of blank flags) ===
+                    ph  Sulfate  Trihalomethanes
+ph               1.000   -0.016            0.001
+Sulfate         -0.016    1.000            0.012
+Trihalomethanes  0.001    0.012            1.000
+
+=== 4. Skewness of columns that have blanks (near 0 = symmetric) ===
+ph                 0.08
+Sulfate           -0.05
+Trihalomethanes   -0.07
+
+
+
+
+
+/research/v2/ here, are the autogluon and pycaret results before preprocessing? What preprocessing was done here? Plz look at the previous code and then tell. And here due to a bug issue pycaret ran on old files and autogl
+
+

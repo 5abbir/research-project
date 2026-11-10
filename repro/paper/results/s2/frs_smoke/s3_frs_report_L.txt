@@ -1,0 +1,55 @@
+mode: smoke  (NOT reportable)
+input: ../results/s2/s2_smote_train_L.csv  sha256: b9eb679d85b438eb0fc6073d987d77c9e353a8c110db1743c41446b0fcc9cc36
+rows used by the main search: 600 (original 490 + synthetic 110); class counts {0: 300, 1: 300}
+test rows used: 0 (the test file is not an input of this script)
+settings: linear similarity (train range), min t-norm, Kleene-Dienes, relation-based Eqs. 4-5/9/10, QuickReduct strict stop, ties -> earlier column
+gamma(all 9 features) = 0.169756
+
+single-feature gamma (information only): Conductivity 0.0020, Organic_carbon 0.0020, Sulfate 0.0019, ph 0.0019, Hardness 0.0018, Trihalomethanes 0.0018, Turbidity 0.0017, Solids 0.0016, Chloramines 0.0016
+
+QuickReduct path (main search):
+  1. +Conductivity     gamma 0.001984 (gain +0.001984)
+  2. +Chloramines      gamma 0.021448 (gain +0.019464)
+  3. +ph               gamma 0.051842 (gain +0.030393)
+  4. +Hardness         gamma 0.079924 (gain +0.028082)
+  5. +Turbidity        gamma 0.103460 (gain +0.023536)
+  6. +Trihalomethanes  gamma 0.124867 (gain +0.021407)
+  7. +Solids           gamma 0.141718 (gain +0.016851)
+  8. +Organic_carbon   gamma 0.157439 (gain +0.015721)
+  9. +Sulfate          gamma 0.169756 (gain +0.012317)   <- reduct ends here
+
+OUR REDUCT (strict gamma = gamma(all)): 9 features: ['Conductivity', 'Chloramines', 'ph', 'Hardness', 'Turbidity', 'Trihalomethanes', 'Solids', 'Organic_carbon', 'Sulfate']
+first 7 of our order (size taken from the paper, NOT discovered): ['Conductivity', 'Chloramines', 'ph', 'Hardness', 'Turbidity', 'Trihalomethanes', 'Solids']
+  gamma of that prefix = 0.141718
+
+Paper list [6,7,3,2,1,5,8] under the two index maps:
+  M1 (paper Table 2 order, primary [P])
+    kept   : ['Sulfate', 'Trihalomethanes', 'Conductivity', 'Chloramines', 'Solids', 'Turbidity', 'ph']
+    dropped: ['Hardness', 'Organic_carbon']
+    gamma = 0.141096; overlap with our reduct 7/9, with our first-7 6/7
+  M2 (raw CSV column order, sensitivity)
+    kept   : ['Organic_carbon', 'Trihalomethanes', 'Chloramines', 'Solids', 'Hardness', 'Conductivity', 'Turbidity']
+    dropped: ['ph', 'Sulfate']
+    gamma = 0.141807; overlap with our reduct 7/9, with our first-7 6/7
+
+Stability check on the 490 ORIGINAL filled rows only (no synthetic): order ['ph', 'Chloramines', 'Conductivity', 'Hardness', 'Turbidity', 'Trihalomethanes', 'Solids', 'Organic_carbon', 'Sulfate']
+  reduct ['ph', 'Chloramines', 'Conductivity', 'Hardness', 'Turbidity', 'Trihalomethanes', 'Solids', 'Organic_carbon', 'Sulfate']; gamma(all) = 0.181867
+  same reduct as main search: False; same first-7 SET: True; same full order: False
+
+Self-test of the closed form:
+  subset of 9: closed form 0.2752043494; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 5.55e-17
+  subset of 3: closed form 0.1128385827; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 0.00e+00
+  subset of 4: closed form 0.1569361136; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 0.00e+00
+  subset of 9: closed form 0.2752043494; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 5.55e-17
+  subset of 5: closed form 0.1770108130; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 0.00e+00
+  subset of 4: closed form 0.1494565046; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 0.00e+00
+
+checks:
+PASS: closed form = brute-force definitions (Kleene-Dienes and Lukasiewicz), 6 random subsets (worst diff 5.55e-17 on 80 rows)
+PASS: gamma non-decreasing along the greedy path (self-test subsample)
+PASS: gamma non-decreasing along the greedy path (main search)
+PASS: gamma after all 9 features equals gamma(all) (0.1697559554)
+PASS: order contains each feature exactly once
+PASS: Potability / row_id / is_synthetic never used as features
+
+Notes: similarity uses each feature's own range, so Solids' large scale does NOT dominate here (it does dominate SMOTE's distances). Synthetic rows lie between real minority rows and can change similarities (limitation, not fixed). The paper's FRS details are unspecified; this is our implementation, not a reproduction of theirs.

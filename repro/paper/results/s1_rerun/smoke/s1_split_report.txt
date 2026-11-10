@@ -1,0 +1,10 @@
+mode: smoke  (smoke results are NOT reportable)
+csv: ../raw_water.csv  sha256: 904004bde729bfe3d2e195f46343bceead09e32a0eb95bb8184e7e20e029b2bf
+rows in file: 3276; columns: 10 (features 9 + target)
+seed: 42; split: stratified 80/20; official train rows 2620, official test rows 656
+fit rows: 400  (class counts {0: 244, 1: 156})
+eval rows: 100  (class counts {0: 61, 1: 39})
+fit rows containing >=1 NaN: 144; NaN cells per column in fit rows: {'ph': 56, 'Sulfate': 94, 'Trihalomethanes': 21}
+TEST ROWS USED: 0  (removed from memory after the split; guards asserted: smoke rows disjoint from test indices)
+NaN counts for the test partition are NOT computed in smoke mode.
+preprocessing applied: NONE (no filling, no row dropping, no scaling, no resampling, no feature selection)

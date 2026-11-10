@@ -1,0 +1,13 @@
+model,TN,FP,FN,TP,n_eval
+WeightedEnsemble_L2,54,7,32,7,100
+NeuralNetFastAI_BAG_L1,47,14,21,18,100
+NeuralNetTorch_BAG_L1,46,15,23,16,100
+LightGBMLarge_BAG_L1,61,0,38,1,100
+XGBoost_BAG_L1,59,2,36,3,100
+LightGBM_BAG_L1,61,0,39,0,100
+CatBoost_BAG_L1,57,4,33,6,100
+LightGBMXT_BAG_L1,60,1,37,2,100
+RandomForestGini_BAG_L1,50,11,28,11,100
+RandomForestEntr_BAG_L1,51,10,30,9,100
+ExtraTreesEntr_BAG_L1,55,6,34,5,100
+ExtraTreesGini_BAG_L1,57,4,34,5,100

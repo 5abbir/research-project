@@ -1,0 +1,3 @@
+dataset,tool,combo,imputer,scaler,resampler,repeat,best_model,cv_auc,cv_acc,cv_f1,seconds,test_auc,test_acc,test_bal_acc,test_f1,test_mcc,test_logloss,test_brier
+smoke,pycaret,mean|minmax|none,mean,minmax,none,0,Random Forest Classifier,0.6676,0.6611,0.4393,6.2628173828125,0.644248046875,0.6448170731707317,0.5878125000000001,0.41895261845386533,0.20646282450199813,0.630261711918625,0.22026829268292683
+smoke,pycaret,mean|minmax|smote,mean,minmax,smote,0,Random Forest Classifier,0.6725,0.6405,0.5051,1.8376543521881104,0.6578759765625001,0.6310975609756098,0.60328125,0.5020576131687243,0.21117025381706273,0.6334303243663368,0.22228033536585365

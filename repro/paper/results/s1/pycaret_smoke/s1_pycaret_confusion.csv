@@ -1,0 +1,7 @@
+model_id,TN,FP,FN,TP,n_eval
+dt,29,32,19,20,100
+rf,53,8,28,11,100
+xgboost,44,17,22,17,100
+lightgbm,42,19,22,17,100
+catboost,51,10,28,11,100
+dummy,61,0,39,0,100

@@ -1,0 +1,10 @@
+step,feature_added,gamma_after,gamma_gain,in_reduct,in_prefix_k
+1,Conductivity,0.001983894,0.001983894,True,True
+2,Chloramines,0.0214483478,0.0194644538,True,True
+3,ph,0.0518418082,0.0303934604,True,True
+4,Hardness,0.0799242149,0.0280824067,True,True
+5,Turbidity,0.103460352,0.0235361372,True,True
+6,Trihalomethanes,0.1248672954,0.0214069434,True,True
+7,Solids,0.1417182893,0.0168509939,True,True
+8,Organic_carbon,0.157439314,0.0157210247,True,False
+9,Sulfate,0.1697559554,0.0123166414,True,False

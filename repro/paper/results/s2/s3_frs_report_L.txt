@@ -1,0 +1,55 @@
+mode: full
+input: ../results/s2/s2_smote_train_L.csv  sha256: b9eb679d85b438eb0fc6073d987d77c9e353a8c110db1743c41446b0fcc9cc36
+rows used by the main search: 3196 (original 2620 + synthetic 576); class counts {0: 1598, 1: 1598}
+test rows used: 0 (the test file is not an input of this script)
+settings: linear similarity (train range), min t-norm, Kleene-Dienes, relation-based Eqs. 4-5/9/10, QuickReduct strict stop, ties -> earlier column
+gamma(all 9 features) = 0.111204
+
+single-feature gamma (information only): Sulfate 0.0005, Hardness 0.0004, Organic_carbon 0.0004, Solids 0.0004, ph 0.0004, Trihalomethanes 0.0003, Chloramines 0.0003, Conductivity 0.0003, Turbidity 0.0003
+
+QuickReduct path (main search):
+  1. +Sulfate          gamma 0.000458 (gain +0.000458)
+  2. +Solids           gamma 0.007178 (gain +0.006720)
+  3. +Turbidity        gamma 0.022578 (gain +0.015400)
+  4. +Conductivity     gamma 0.041160 (gain +0.018582)
+  5. +Trihalomethanes  gamma 0.058765 (gain +0.017605)
+  6. +Organic_carbon   gamma 0.075260 (gain +0.016495)
+  7. +Hardness         gamma 0.088834 (gain +0.013574)
+  8. +Chloramines      gamma 0.100808 (gain +0.011974)
+  9. +ph               gamma 0.111204 (gain +0.010396)   <- reduct ends here
+
+OUR REDUCT (strict gamma = gamma(all)): 9 features: ['Sulfate', 'Solids', 'Turbidity', 'Conductivity', 'Trihalomethanes', 'Organic_carbon', 'Hardness', 'Chloramines', 'ph']
+first 7 of our order (size taken from the paper, NOT discovered): ['Sulfate', 'Solids', 'Turbidity', 'Conductivity', 'Trihalomethanes', 'Organic_carbon', 'Hardness']
+  gamma of that prefix = 0.088834
+
+Paper list [6,7,3,2,1,5,8] under the two index maps:
+  M1 (paper Table 2 order, primary [P])
+    kept   : ['Sulfate', 'Trihalomethanes', 'Conductivity', 'Chloramines', 'Solids', 'Turbidity', 'ph']
+    dropped: ['Hardness', 'Organic_carbon']
+    gamma = 0.087795; overlap with our reduct 7/9, with our first-7 5/7
+  M2 (raw CSV column order, sensitivity)
+    kept   : ['Organic_carbon', 'Trihalomethanes', 'Chloramines', 'Solids', 'Hardness', 'Conductivity', 'Turbidity']
+    dropped: ['ph', 'Sulfate']
+    gamma = 0.090854; overlap with our reduct 7/9, with our first-7 6/7
+
+Stability check on the 2620 ORIGINAL filled rows only (no synthetic): order ['Hardness', 'Solids', 'Turbidity', 'Organic_carbon', 'Conductivity', 'Trihalomethanes', 'Chloramines', 'ph', 'Sulfate']
+  reduct ['Hardness', 'Solids', 'Turbidity', 'Organic_carbon', 'Conductivity', 'Trihalomethanes', 'Chloramines', 'ph', 'Sulfate']; gamma(all) = 0.116805
+  same reduct as main search: False; same first-7 SET: False; same full order: False
+
+Self-test of the closed form:
+  subset of 3: closed form 0.0998932331; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 1.39e-17
+  subset of 2: closed form 0.0572982748; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 0.00e+00
+  subset of 5: closed form 0.1928020244; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 0.00e+00
+  subset of 3: closed form 0.0998932331; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 1.39e-17
+  subset of 9: closed form 0.2512909317; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 0.00e+00
+  subset of 2: closed form 0.0593588268; max |diff| to brute force (Kleene-Dienes, Lukasiewicz) = 1.39e-17
+
+checks:
+PASS: closed form = brute-force definitions (Kleene-Dienes and Lukasiewicz), 6 random subsets (worst diff 1.39e-17 on 80 rows)
+PASS: gamma non-decreasing along the greedy path (self-test subsample)
+PASS: gamma non-decreasing along the greedy path (main search)
+PASS: gamma after all 9 features equals gamma(all) (0.1112040614)
+PASS: order contains each feature exactly once
+PASS: Potability / row_id / is_synthetic never used as features
+
+Notes: similarity uses each feature's own range, so Solids' large scale does NOT dominate here (it does dominate SMOTE's distances). Synthetic rows lie between real minority rows and can change similarities (limitation, not fixed). The paper's FRS details are unspecified; this is our implementation, not a reproduction of theirs.

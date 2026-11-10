@@ -1,0 +1,16 @@
+variant,model,TN,FP,FN,TP,n_eval
+S2b-ref,XGBoost,124,59,65,52,300
+S2b-ref,RandomForest,126,57,73,44,300
+S2b-ref,AdaBoost,80,103,46,71,300
+S3-paperM1,XGBoost,113,70,64,53,300
+S3-paperM1,RandomForest,117,66,71,46,300
+S3-paperM1,AdaBoost,89,94,47,70,300
+S3-own7,XGBoost,110,73,63,54,300
+S3-own7,RandomForest,116,67,79,38,300
+S3-own7,AdaBoost,81,102,40,77,300
+S3-paperM2,XGBoost,105,78,73,44,300
+S3-paperM2,RandomForest,117,66,75,42,300
+S3-paperM2,AdaBoost,114,69,80,37,300
+S3-stab7,XGBoost,110,73,63,54,300
+S3-stab7,RandomForest,116,67,79,38,300
+S3-stab7,AdaBoost,81,102,40,77,300

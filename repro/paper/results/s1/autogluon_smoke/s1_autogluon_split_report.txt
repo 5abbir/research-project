@@ -1,0 +1,7 @@
+mode: smoke  (smoke results are NOT reportable)
+csv: ../raw_water.csv  sha256: 904004bde729bfe3d2e195f46343bceead09e32a0eb95bb8184e7e20e029b2bf
+seed 42; stratified 80/20; official train 2620, official test 656
+fit rows 400; eval rows 100; fit rows with >=1 NaN: 144
+TEST ROWS USED: 0 (removed from memory after the split; guards asserted)
+AutoGluon fit settings: {'presets': 'medium_quality', 'num_bag_folds': 5, 'num_stack_levels': 0, 'time_limit': 60, 'num_cpus': 8}; eval_metric=roc_auc [P, see --eval-metric]
+preprocessing by this script: NONE (AutoGluon default internal preprocessing untouched)

@@ -1,0 +1,37 @@
+{
+  "mode": "smoke",
+  "track": "L (leak-free, primary)",
+  "timestamp": "2026-11-08T07:27:48",
+  "command": "r3_fill_trackL.py --csv ../raw_water.csv --target Potability --out ../results/s2 --smoke",
+  "seed": 42,
+  "rule": "r > 0.0",
+  "grid": {
+    "n_estimators": [
+      100,
+      300
+    ],
+    "max_depth": [
+      null,
+      10
+    ],
+    "min_samples_leaf": [
+      1,
+      5,
+      25
+    ]
+  },
+  "order": [
+    "Trihalomethanes",
+    "ph",
+    "Sulfate"
+  ],
+  "test_rows_used_for_fitting": 0,
+  "test_rows_used": 0,
+  "versions": {
+    "python": "3.11.17",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39"
+  }
+}

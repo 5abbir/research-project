@@ -1,0 +1,4 @@
+model,precision_pct,sensitivity_pct,specificity_pct,f1_pct,accuracy_pct,note,source,use
+XGBoost,63.7,32.37,89.07,42.93,67.98,,"Shehab et al. 2025, Table 5 (original data)","REFERENCE ONLY, not our result"
+RandomForest,63.97,35.65,88.1,45.78,68.6,text Sect. 5.4 says 68.50; Table 5 / conclusion say 68.60,"Shehab et al. 2025, Table 5 (original data)","REFERENCE ONLY, not our result"
+AdaBoost,48.97,19.67,87.86,28.07,62.5,,"Shehab et al. 2025, Table 5 (original data)","REFERENCE ONLY, not our result"

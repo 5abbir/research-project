@@ -1,0 +1,115 @@
+INFO autogluon.tabular.predictor.predictor: Verbosity: 2 (Standard Logging)
+INFO autogluon.tabular.predictor.predictor: =================== System Info ===================
+AutoGluon Version:  1.6.3
+Python Version:     3.11.17
+Operating System:   Linux
+Platform Machine:   x86_64
+Platform Version:   #28~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Jul  1 15:50:57 UTC 2
+CPU Count:          12
+Pytorch Version:    2.13.0+cu130
+CUDA Version:       CUDA is not available
+Memory Avail:       8.62 GB / 15.31 GB (56.3%)
+Disk Space Avail:   10.83 GB / 132.32 GB (8.2%)
+===================================================
+INFO autogluon.tabular.predictor.predictor: Presets specified: ['medium_quality']
+INFO autogluon.tabular.predictor.predictor: Using hyperparameters preset: hyperparameters='default'
+INFO autogluon.tabular.learner.default_learner: Beginning AutoGluon training ... Time limit = 300s
+INFO autogluon.tabular.learner.default_learner: AutoGluon will save models to "/home/sabbir/research/repro/paper/results/s1/ag_models"
+INFO autogluon.tabular.learner.default_learner: Train Data Rows:    2620
+INFO autogluon.tabular.learner.default_learner: Train Data Columns: 9
+INFO autogluon.tabular.learner.default_learner: Label Column:       Potability
+INFO autogluon.tabular.learner.default_learner: Problem Type:       binary
+INFO autogluon.tabular.learner.default_learner: Preprocessing data...
+INFO autogluon.core.data.label_cleaner: Selected class <--> label mapping:  class 1 = 1, class 0 = 0
+INFO autogluon.tabular.learner.default_learner: Using Feature Generators to preprocess the data ...
+INFO autogluon.features.generators.abstract: Fitting AutoMLPipelineFeatureGenerator...
+INFO autogluon.features.generators.abstract: 	Available Memory:                    8819.37 MB
+INFO autogluon.features.generators.abstract: 	Train Data (Original)  Memory Usage: 0.18 MB (0.0% of available memory)
+INFO autogluon.features.generators.abstract: 	Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+INFO autogluon.features.generators.abstract: 	Stage 1 Generators:
+INFO autogluon.features.generators.abstract: 		Fitting AsTypeFeatureGenerator...
+INFO autogluon.features.generators.abstract: 	Stage 2 Generators:
+INFO autogluon.features.generators.abstract: 		Fitting FillNaFeatureGenerator...
+INFO autogluon.features.generators.abstract: 	Stage 3 Generators:
+INFO autogluon.features.generators.abstract: 		Fitting IdentityFeatureGenerator...
+INFO autogluon.features.generators.abstract: 	Stage 4 Generators:
+INFO autogluon.features.generators.abstract: 		Fitting DropUniqueFeatureGenerator...
+INFO autogluon.features.generators.abstract: 	Stage 5 Generators:
+INFO autogluon.features.generators.abstract: 		Fitting DropDuplicatesFeatureGenerator...
+INFO autogluon.features.generators.abstract: 	Types of features in original data (raw dtype, special dtypes):
+INFO autogluon.common.features.feature_metadata: 		('float', []) : 9 | ['ph', 'Hardness', 'Solids', 'Chloramines', 'Sulfate', ...]
+INFO autogluon.features.generators.abstract: 	Types of features in processed data (raw dtype, special dtypes):
+INFO autogluon.features.generators.abstract: 	0.0s = Fit runtime
+INFO autogluon.features.generators.abstract: 	9 features in original data used to generate 9 features in processed data.
+INFO autogluon.features.generators.abstract: 	Train Data (Processed) Memory Usage: 0.18 MB (0.0% of available memory)
+INFO autogluon.tabular.learner.default_learner: Data preprocessing and feature engineering runtime = 0.02s ...
+INFO autogluon.tabular.trainer.abstract_trainer: AutoGluon will gauge predictive performance using evaluation metric: 'roc_auc'
+INFO autogluon.tabular.trainer.abstract_trainer: 	This metric expects predicted probabilities rather than predicted class labels, so you'll need to use predict_proba() instead of predict()
+INFO autogluon.tabular.trainer.abstract_trainer: 	To change this, specify the eval_metric parameter of Predictor()
+INFO autogluon.tabular.trainer.auto_trainer: User-specified model hyperparameters to be fit:
+{
+	'NN_TORCH': [{}],
+	'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],
+	'CAT': [{}],
+	'XGB': [{}],
+	'FASTAI': [{}],
+	'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+	'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+}
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting 11 L1 models, fit_strategy="sequential" ...
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: LightGBMXT_BAG_L1 ... Training model for up to 299.98s of the 299.98s of remaining time.
+INFO autogluon.core.models.ensemble.bagged_ensemble_model: 	Fitting 5 child models (S1F1 - S1F5) | Fitting with ParallelLocalFoldFittingStrategy (5 workers, per: cpus=1, gpus=0, memory=0.74%)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.7031	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.9s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.04s	 = Validation runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: LightGBM_BAG_L1 ... Training model for up to 292.79s of the 292.79s of remaining time.
+INFO autogluon.core.models.ensemble.bagged_ensemble_model: 	Fitting 5 child models (S1F1 - S1F5) | Fitting with ParallelLocalFoldFittingStrategy (5 workers, per: cpus=1, gpus=0, memory=0.92%)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6789	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	1.65s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.01s	 = Validation runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: RandomForestGini_BAG_L1 ... Training model for up to 290.03s of the 290.03s of remaining time.
+INFO autogluon.core.models.abstract.abstract_model: 	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.0/7.4 GB
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6721	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.08s	 = Validation runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: RandomForestEntr_BAG_L1 ... Training model for up to 289.33s of the 289.32s of remaining time.
+INFO autogluon.core.models.abstract.abstract_model: 	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.0/7.5 GB
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6777	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.54s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: CatBoost_BAG_L1 ... Training model for up to 288.69s of the 288.68s of remaining time.
+INFO autogluon.core.models.ensemble.bagged_ensemble_model: 	Fitting 5 child models (S1F1 - S1F5) | Fitting with ParallelLocalFoldFittingStrategy (5 workers, per: cpus=1, gpus=0, memory=5.14%)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6845	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	2.68s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: ExtraTreesGini_BAG_L1 ... Training model for up to 285.01s of the 285.01s of remaining time.
+INFO autogluon.core.models.abstract.abstract_model: 	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.0/7.1 GB
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6755	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.59s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.09s	 = Validation runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: ExtraTreesEntr_BAG_L1 ... Training model for up to 284.30s of the 284.30s of remaining time.
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6719	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.5s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: NeuralNetFastAI_BAG_L1 ... Training model for up to 283.68s of the 283.68s of remaining time.
+INFO autogluon.core.models.ensemble.bagged_ensemble_model: 	Fitting 5 child models (S1F1 - S1F5) | Fitting with ParallelLocalFoldFittingStrategy (5 workers, per: cpus=1, gpus=0, memory=0.03%)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.7103	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	4.9s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: XGBoost_BAG_L1 ... Training model for up to 277.33s of the 277.33s of remaining time.
+INFO autogluon.core.models.ensemble.bagged_ensemble_model: 	Fitting 5 child models (S1F1 - S1F5) | Fitting with ParallelLocalFoldFittingStrategy (5 workers, per: cpus=1, gpus=0, memory=0.14%)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6758	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	1.98s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: NeuralNetTorch_BAG_L1 ... Training model for up to 274.26s of the 274.26s of remaining time.
+INFO autogluon.core.models.ensemble.bagged_ensemble_model: 	Fitting 5 child models (S1F1 - S1F5) | Fitting with ParallelLocalFoldFittingStrategy (5 workers, per: cpus=1, gpus=0, memory=0.01%)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.7064	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	7.26s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.02s	 = Validation runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: LightGBMLarge_BAG_L1 ... Training model for up to 265.34s of the 265.34s of remaining time.
+INFO autogluon.core.models.ensemble.bagged_ensemble_model: 	Fitting 5 child models (S1F1 - S1F5) | Fitting with ParallelLocalFoldFittingStrategy (5 workers, per: cpus=1, gpus=0, memory=1.60%)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.6795	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	2.3s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: Fitting model: WeightedEnsemble_L2 ... Training model for up to 299.98s of the 261.06s of remaining time.
+INFO autogluon.core.models.abstract.abstract_model: 	Fitting 1 model on all data | Fitting with cpus=8, gpus=0, mem=0.0/7.1 GB
+INFO autogluon.tabular.trainer.abstract_trainer: 	Ensemble Weights: {'NeuralNetFastAI_BAG_L1': 0.292, 'ExtraTreesGini_BAG_L1': 0.208, 'LightGBMXT_BAG_L1': 0.167, 'NeuralNetTorch_BAG_L1': 0.167, 'LightGBMLarge_BAG_L1': 0.125, 'RandomForestEntr_BAG_L1': 0.042}
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.7285	 = Validation score   (roc_auc)
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.12s	 = Training   runtime
+INFO autogluon.tabular.trainer.abstract_trainer: 	0.0s	 = Validation runtime
+INFO autogluon.tabular.learner.default_learner: AutoGluon training complete, total runtime = 39.13s ... Best model: WeightedEnsemble_L2 | Estimated inference throughput: 3410.4 rows/s (524 batch size)
+INFO autogluon.tabular.predictor.predictor: TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/sabbir/research/repro/paper/results/s1/ag_models")

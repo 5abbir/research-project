@@ -1,0 +1,44 @@
+Scenario 2, Section 4.2 step 2: correlation table (TRAIN ROWS ONLY; test rows not used; target not included)
+csv sha256: 904004bde729bfe3d2e195f46343bceead09e32a0eb95bb8184e7e20e029b2bf
+official split seed 42: train rows 2620 (test rows 656 not used)
+missing cells in train rows: {'ph': 387, 'Sulfate': 625, 'Trihalomethanes': 134}; complete columns: ['Hardness', 'Solids', 'Chloramines', 'Conductivity', 'Organic_carbon', 'Turbidity']
+Pearson r on pairwise-complete rows; 95% CI by Fisher z (approximate).
+This report does NOT choose the 'positive co-related' rule (decision B3 is the user's).
+
+== column to fill: ph (387 missing of 2620 train rows)
+candidate_predictor  candidate_is_complete_column  n_pairs  pearson_r  ci95_low  ci95_high  r_gt_0  r_gt_0.1  ci_excludes_0
+           Hardness                          True     2233     0.0643    0.0229     0.1055    True     False           True
+     Organic_carbon                          True     2233     0.0574    0.0160     0.0987    True     False           True
+            Sulfate                         False     1694     0.0337   -0.0139     0.0812    True     False          False
+       Conductivity                          True     2233     0.0273   -0.0142     0.0687    True     False          False
+    Trihalomethanes                         False     2119     0.0005   -0.0420     0.0431    True     False          False
+        Chloramines                          True     2233    -0.0322   -0.0736     0.0093   False     False          False
+          Turbidity                          True     2233    -0.0429   -0.0842    -0.0014   False     False           True
+             Solids                          True     2233    -0.0899   -0.1309    -0.0486   False     False           True
+   r > 0: 5 candidates; r > 0.1: 0; CI excludes 0: 4; largest |r| = 0.0899
+
+== column to fill: Sulfate (625 missing of 2620 train rows)
+candidate_predictor  candidate_is_complete_column  n_pairs  pearson_r  ci95_low  ci95_high  r_gt_0  r_gt_0.1  ci_excludes_0
+        Chloramines                          True     1995     0.0404   -0.0035     0.0841    True     False          False
+                 ph                         False     1694     0.0337   -0.0139     0.0812    True     False          False
+     Organic_carbon                          True     1995     0.0325   -0.0114     0.0763    True     False          False
+          Turbidity                          True     1995    -0.0071   -0.0510     0.0368   False     False          False
+       Conductivity                          True     1995    -0.0130   -0.0568     0.0309   False     False          False
+    Trihalomethanes                         False     1896    -0.0259   -0.0708     0.0192   False     False          False
+           Hardness                          True     1995    -0.0881   -0.1315    -0.0444   False     False           True
+             Solids                          True     1995    -0.2011   -0.2428    -0.1586   False     False           True
+   r > 0: 3 candidates; r > 0.1: 0; CI excludes 0: 2; largest |r| = 0.2011
+
+== column to fill: Trihalomethanes (134 missing of 2620 train rows)
+candidate_predictor  candidate_is_complete_column  n_pairs  pearson_r  ci95_low  ci95_high  r_gt_0  r_gt_0.1  ci_excludes_0
+        Chloramines                          True     2486     0.0093   -0.0300     0.0486    True     False          False
+     Organic_carbon                          True     2486     0.0054   -0.0340     0.0447    True     False          False
+                 ph                         False     2119     0.0005   -0.0420     0.0431    True     False          False
+       Conductivity                          True     2486     0.0004   -0.0389     0.0397    True     False          False
+           Hardness                          True     2486    -0.0118   -0.0511     0.0275   False     False          False
+          Turbidity                          True     2486    -0.0172   -0.0565     0.0221   False     False          False
+             Solids                          True     2486    -0.0220   -0.0613     0.0173   False     False          False
+            Sulfate                         False     1896    -0.0259   -0.0708     0.0192   False     False          False
+   r > 0: 4 candidates; r > 0.1: 0; CI excludes 0: 0; largest |r| = 0.0259
+
+Reading guide: with this many rows an |r| below about 0.05 is hard to tell from 0; a rule 'r > 0' would then admit columns by noise. If a rule leaves NO candidate for a column, the script of step 3 must stop and ask (never a silent fallback).

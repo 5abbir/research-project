@@ -1,0 +1,31 @@
+mode: full
+train file: ../results/s2/s2_filled_train_L.csv  sha256: ce69fd61c5c6b35de13daaf579ea1b3e3e563a6754363dd6626b9f3ad1bd5167
+train rows given to SMOTE: 2620; class counts {0: 1598, 1: 1022}; majority label 0 (1598), minority label 1 (1022)
+SMOTE: imblearn 0.14.2, defaults (k_neighbors=5, sampling_strategy='auto'), random_state=42, no scaling; features used: ['ph', 'Hardness', 'Solids', 'Chloramines', 'Sulfate', 'Conductivity', 'Organic_carbon', 'Trihalomethanes', 'Turbidity']
+output: ../results/s2/s2_smote_train_L.csv  rows 3196 (2620 original + 576 synthetic)  sha256: b9eb679d85b438eb0fc6073d987d77c9e353a8c110db1743c41446b0fcc9cc36
+test file (read-only check): ../results/s2/s2_filled_test_L.csv
+  rows 656, class counts {0: 400, 1: 256}, NaN 0, row ids disjoint from train; never resampled, never used for fitting
+  sha256 before: 0e3e5f0882e76ae0ca4f36d02cc27564e5ec7e588def3c1c0673c3387ac90a0e
+  sha256 after:  0e3e5f0882e76ae0ca4f36d02cc27564e5ec7e588def3c1c0673c3387ac90a0e
+
+checks:
+PASS: originals come first and are unchanged (2620 rows)
+PASS: number of synthetic rows = majority - minority (576 = 1598 - 1022)
+PASS: all synthetic rows belong to the minority class (label 1)
+PASS: classes balanced after SMOTE ({0: 1598, 1: 1598})
+PASS: no NaN in the resampled features ()
+PASS: synthetic values lie inside the original minority-class range of every feature (interpolation property) ()
+PASS: synthetic rows that exactly copy an original row (informational, expected about 0) (0 of 576)
+PASS: test file unchanged by this script (sha256 before = after) ()
+
+distance dominance (minority class):
+                 sd_minority_class  share_of_squared_distance_variance_pct
+ph                          1.3570                                    0.00
+Hardness                   35.5638                                    0.00
+Solids                   9129.4713                                   99.99
+Chloramines                 1.7120                                    0.00
+Sulfate                    42.3193                                    0.00
+Conductivity               82.6487                                    0.01
+Organic_carbon              3.2868                                    0.00
+Trihalomethanes            16.1617                                    0.00
+Turbidity                   0.7777                                    0.00

@@ -1,0 +1,28 @@
+{
+  "mode": "full",
+  "timestamp": "2026-11-07T15:50:50",
+  "command": "r2_s1_autogluon.py --csv ../raw_water.csv --target Potability --out ../results/s1_rerun --check-split-with ../results/s1/s1_predictions.csv --compare-with ../results/s1",
+  "seed": 42,
+  "fit_kwargs": {
+    "presets": "medium_quality",
+    "num_bag_folds": "5",
+    "num_stack_levels": "0",
+    "time_limit": "300",
+    "num_cpus": "8"
+  },
+  "eval_metric": "roc_auc",
+  "eval_metric_note": "[P] v2 value not recorded in the handoff; user to confirm",
+  "fit_seconds": 45.3,
+  "protocol_deviations": [],
+  "test_rows_used": 656,
+  "versions": {
+    "python": "3.11.17",
+    "autogluon.tabular": "1.6.3",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39"
+  },
+  "n_models_in_leaderboard": 12,
+  "determinism_note": "AutoGluon may have nondeterministic parts (threads, time limit); repeat equality is checked, not assumed"
+}

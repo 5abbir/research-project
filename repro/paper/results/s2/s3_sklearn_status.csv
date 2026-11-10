@@ -1,0 +1,16 @@
+variant,model,status,error_type,error_message,seconds
+S2b-ref,XGBoost,runnable,,,0.09
+S2b-ref,RandomForest,runnable,,,0.23
+S2b-ref,AdaBoost,runnable,,,0.17
+S3-paperM1,XGBoost,runnable,,,0.07
+S3-paperM1,RandomForest,runnable,,,0.25
+S3-paperM1,AdaBoost,runnable,,,0.16
+S3-own7,XGBoost,runnable,,,0.07
+S3-own7,RandomForest,runnable,,,0.21
+S3-own7,AdaBoost,runnable,,,0.14
+S3-paperM2,XGBoost,runnable,,,0.06
+S3-paperM2,RandomForest,runnable,,,0.22
+S3-paperM2,AdaBoost,runnable,,,0.14
+S3-stab7,XGBoost,runnable,,,0.08
+S3-stab7,RandomForest,runnable,,,0.21
+S3-stab7,AdaBoost,runnable,,,0.14

@@ -1,0 +1,20 @@
+mode: full
+filled train: ../results/s2/s2_filled_train_L.csv  sha256 ce69fd61c5c6b35de13daaf579ea1b3e3e563a6754363dd6626b9f3ad1bd5167
+SMOTE train: ../results/s2/s2_smote_train_L.csv  sha256 b9eb679d85b438eb0fc6073d987d77c9e353a8c110db1743c41446b0fcc9cc36
+S2a fit rows 2620 {0: 1598, 1: 1022}
+S2b fit rows 3196 {0: 1598, 1: 1598}
+eval rows 656 {0: 400, 1: 256}
+test file ../results/s2/s2_filled_test_L.csv  sha256 before 0e3e5f0882e76ae0ca4f36d02cc27564e5ec7e588def3c1c0673c3387ac90a0e
+
+checks:
+PASS: feature list excludes target, row_id and is_synthetic (9 features)
+PASS: same feature columns in S2a and S2b train files ()
+PASS: no NaN in any training feature ()
+PASS: synthetic rows have row_id -1 and originals have row_id >= 0 (576 synthetic)
+PASS: S2b originals equal the S2a train rows (same ids, labels, order; feature values equal up to text round-off <= 1e-12 relative) (2620 rows; max relative difference 3.05e-16)
+PASS: S2b train classes balanced ({0: 1598, 1: 1598})
+PASS: test columns contain all features ()
+PASS: no NaN in test features (656 rows)
+PASS: test row ids disjoint from train row ids ()
+PASS: test row ids equal the S1 test row ids (656 ids in S1 file)
+PASS: test file unchanged by this script (sha256 before = after) ()

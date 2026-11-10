@@ -1,0 +1,36 @@
+AdaBoost record, Scenario 1 (raw CSV)
+mode: full
+Reported as: "Not runnable on raw CSV with NaN values; missing-value handling unspecified in paper."
+Our status: NOT REPRODUCIBLE for AdaBoost under the raw-CSV protocol.
+exact error type: ValueError
+exact error message: Input X contains NaN. | AdaBoostClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+scikit-learn version: 1.9.1
+rows with >=1 NaN: fit/train rows used = 1013; test rows = 252; whole file = 1265
+XGBoost ran on NaN: runnable; RandomForest ran on NaN: runnable
+Paper's AdaBoost result (Table 5, reference only): precision 48.97, sensitivity 19.67, specificity 87.86, F1 28.07, accuracy 62.50 (%)
+
+Full traceback:
+Traceback (most recent call last):
+  File "/home/sabbir/research/repro/paper/code/r2_s1_sklearn_models.py", line 241, in main
+    model.fit(X_fit, y_fit)
+  File "/home/sabbir/research/env_main/lib/python3.11/site-packages/sklearn/base.py", line 1403, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sabbir/research/env_main/lib/python3.11/site-packages/sklearn/ensemble/_weight_boosting.py", line 130, in fit
+    X, y = validate_data(
+           ^^^^^^^^^^^^^^
+  File "/home/sabbir/research/env_main/lib/python3.11/site-packages/sklearn/utils/validation.py", line 3058, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sabbir/research/env_main/lib/python3.11/site-packages/sklearn/utils/validation.py", line 1330, in check_X_y
+    X = check_array(
+        ^^^^^^^^^^^^
+  File "/home/sabbir/research/env_main/lib/python3.11/site-packages/sklearn/utils/validation.py", line 1090, in check_array
+    _assert_all_finite(
+  File "/home/sabbir/research/env_main/lib/python3.11/site-packages/sklearn/utils/validation.py", line 137, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/sabbir/research/env_main/lib/python3.11/site-packages/sklearn/utils/validation.py", line 186, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+AdaBoostClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+

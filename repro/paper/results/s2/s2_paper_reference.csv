@@ -1,0 +1,7 @@
+paper_table,model,precision_pct,sensitivity_pct,specificity_pct,f1_pct,accuracy_pct,use
+"Table 6 (phase 1, 'after filling null values')",XGBoost,94.58,94.19,96.86,94.38,95.88,REFERENCE ONLY; the paper does not say whether Table 6 includes SMOTE; split/seed/versions unknown
+"Table 6 (phase 1, 'after filling null values')",RandomForest,87.98,85.062,93.25,86.49,90.24,REFERENCE ONLY; the paper does not say whether Table 6 includes SMOTE; split/seed/versions unknown
+"Table 6 (phase 1, 'after filling null values')",AdaBoost,91.44,84.23,95.42,87.68,91.31,REFERENCE ONLY; the paper does not say whether Table 6 includes SMOTE; split/seed/versions unknown
+"Table 7 (phase 4, 'after filling null values and apply fuzzy rough set')",XGBoost,98.3,99.31,98.39,98.8,98.83,REFERENCE ONLY; the paper does not say whether Table 6 includes SMOTE; split/seed/versions unknown
+"Table 7 (phase 4, 'after filling null values and apply fuzzy rough set')",RandomForest,95.18,94.86,95.49,95.02,95.19,REFERENCE ONLY; the paper does not say whether Table 6 includes SMOTE; split/seed/versions unknown
+"Table 7 (phase 4, 'after filling null values and apply fuzzy rough set')",AdaBoost,90.96,93.15,91.31,92.04,92.21,REFERENCE ONLY; the paper does not say whether Table 6 includes SMOTE; split/seed/versions unknown

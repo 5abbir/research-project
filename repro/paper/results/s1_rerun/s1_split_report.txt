@@ -1,0 +1,11 @@
+mode: full
+csv: ../raw_water.csv  sha256: 904004bde729bfe3d2e195f46343bceead09e32a0eb95bb8184e7e20e029b2bf
+rows in file: 3276; columns: 10 (features 9 + target)
+seed: 42; split: stratified 80/20; official train rows 2620, official test rows 656
+fit rows: 2620  (class counts {0: 1598, 1: 1022})
+eval rows: 656  (class counts {0: 400, 1: 256})
+fit rows containing >=1 NaN: 1013; NaN cells per column in fit rows: {'ph': 387, 'Sulfate': 625, 'Trihalomethanes': 134}
+eval (test) rows containing >=1 NaN: 252
+NaN-containing rows, whole file: 1265
+TEST ROWS USED: scored once per runnable model, after fitting on train rows only
+preprocessing applied: NONE (no filling, no row dropping, no scaling, no resampling, no feature selection)

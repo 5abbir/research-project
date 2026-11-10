@@ -1,0 +1,28 @@
+platform: Linux-7.0.0-28-generic-x86_64-with-glibc2.39
+python: 3.11.17
+cpus_used: 8
+time_limit_s: 300
+scikit-learn: 1.9.1
+autogluon.tabular: 1.6.3
+lightgbm: 4.7.0
+catboost: 1.2.10
+---
+platform: Linux-7.0.0-28-generic-x86_64-with-glibc2.39
+python: 3.11.17
+cpus_used: 8
+time_limit_s: 300
+scikit-learn: 1.9.1
+autogluon.tabular: 1.6.3
+lightgbm: 4.7.0
+catboost: 1.2.10
+---
+platform: Linux-7.0.0-28-generic-x86_64-with-glibc2.39
+python: 3.11.17
+cpus_used: 8
+time_limit_s: 300
+scikit-learn: 1.4.2
+pycaret: 3.3.2
+lightgbm: 4.7.0
+xgboost: 3.2.0
+catboost: 1.2.10
+---

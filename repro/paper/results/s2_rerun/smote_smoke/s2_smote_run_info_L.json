@@ -1,0 +1,22 @@
+{
+  "mode": "smoke",
+  "track": "L (leak-free, primary), S2b",
+  "timestamp": "2026-11-08T23:09:35",
+  "command": "r3_make_smote_trackL.py --train-csv ../results/s2/s2_filled_train_L.csv --target Potability --out ../results/s2_rerun --smoke --compare-with ../results/s2/smote_smoke/s2_smote_train_L.csv",
+  "seed": 42,
+  "k_neighbors": 5,
+  "train_sha256": "ce69fd61c5c6b35de13daaf579ea1b3e3e563a6754363dd6626b9f3ad1bd5167",
+  "output_sha256": "ac8501509d9dda2c2cb1063dbbfab13bcf0de03fa56ed18c5086dba890d19da8",
+  "test_sha256_before": null,
+  "test_sha256_after": null,
+  "n_original": 500,
+  "n_synthetic": 110,
+  "versions": {
+    "python": "3.11.17",
+    "imblearn": "0.14.2",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39"
+  }
+}

@@ -1,0 +1,7 @@
+,autogluon,pycaret
+cv_auc,0.6781 +/- nan,0.6818 +/- nan
+test_auc,0.6418 +/- nan,0.6711 +/- nan
+test_f1,0.383 +/- nan,0.3978 +/- nan
+test_bal_acc,0.5806 +/- nan,0.592 +/- nan
+test_acc,0.6463 +/- nan,0.6585 +/- nan
+seconds,9.4013 +/- nan,35.8407 +/- nan

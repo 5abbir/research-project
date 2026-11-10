@@ -1,0 +1,7 @@
+AutoGluon NaN handling, Scenario 1 (raw CSV)
+mode: smoke; autogluon 1.6.3
+Known from the v2 experiment [C from v2; NOT re-verified in this run]: RandomForest/ExtraTrees-type models fill NaN with 0, neural networks use the median, gradient-boosting models handle NaN natively.
+Results below reflect AutoGluon's internal handling, not one manually specified common imputation, and are not equivalent to the sklearn/PyCaret NaN-native runs.
+NaN cells in first 50 eval rows before AutoGluon's generic feature transform: 16; after: 16 (generic transform only; model-specific filling happens inside each model)
+log lines mentioning failures/errors during fit: 1 (full log: s1_autogluon_fit_log.txt)
+  INFO autogluon.tabular.trainer.auto_trainer: User-specified model hyperparameters to be fit: | { | 	'NN_TORCH': [{}], | 	'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_l

@@ -1,0 +1,4 @@
+model,role,result_label,run_mode,n_eval,accuracy,baseline_acc_majority,precision,recall_sensitivity,specificity,f1,roc_auc,balanced_accuracy,mcc,log_loss,brier,note
+XGBoost,Primary,Raw CSV / NaN-native,smoke,100.0,0.61,0.61,0.5,0.4358974358974359,0.7213114754098361,0.4657534246575342,0.5775535939470366,0.578604455653636,0.1618687283507184,0.9781933426856995,0.2916826903820038,
+RandomForest,Primary,Raw CSV / NaN-native,smoke,100.0,0.59,0.61,0.4583333333333333,0.28205128205128205,0.7868852459016393,0.3492063492063492,0.6021437578814628,0.5344682639764606,0.07872890480571546,0.6513187240060802,0.230152,
+AdaBoost,Primary,Not runnable,smoke,,,,,,,,,,,,,Not runnable on raw CSV with NaN values; missing-value handling unspecified in paper

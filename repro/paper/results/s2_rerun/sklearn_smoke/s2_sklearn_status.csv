@@ -1,0 +1,7 @@
+variant,model,status,error_type,error_message,seconds
+S2a,XGBoost,runnable,,,0.06
+S2a,RandomForest,runnable,,,0.17
+S2a,AdaBoost,runnable,,,0.07
+S2b,XGBoost,runnable,,,0.06
+S2b,RandomForest,runnable,,,0.22
+S2b,AdaBoost,runnable,,,0.08

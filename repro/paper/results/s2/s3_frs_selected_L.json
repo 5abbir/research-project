@@ -1,0 +1,100 @@
+{
+  "track": "L (leak-free, primary), S3",
+  "label": "Section 4.2 fill + SMOTE (train rows only) + fuzzy-rough selection (our implementation)",
+  "mode": "full",
+  "n_rows_used": 3196,
+  "n_original_rows": 2620,
+  "our_reduct_strict": [
+    "Sulfate",
+    "Solids",
+    "Turbidity",
+    "Conductivity",
+    "Trihalomethanes",
+    "Organic_carbon",
+    "Hardness",
+    "Chloramines",
+    "ph"
+  ],
+  "our_prefix_k": [
+    "Sulfate",
+    "Solids",
+    "Turbidity",
+    "Conductivity",
+    "Trihalomethanes",
+    "Organic_carbon",
+    "Hardness"
+  ],
+  "k_paper": 7,
+  "paper_list_indices": [
+    6,
+    7,
+    3,
+    2,
+    1,
+    5,
+    8
+  ],
+  "paper_list_M1": [
+    "Sulfate",
+    "Trihalomethanes",
+    "Conductivity",
+    "Chloramines",
+    "Solids",
+    "Turbidity",
+    "ph"
+  ],
+  "paper_list_M2": [
+    "Organic_carbon",
+    "Trihalomethanes",
+    "Chloramines",
+    "Solids",
+    "Hardness",
+    "Conductivity",
+    "Turbidity"
+  ],
+  "gamma_all": 0.111204061389056,
+  "gamma_path": [
+    0.0004576322602444981,
+    0.00717805737740572,
+    0.022578444642281176,
+    0.04116019073290153,
+    0.058765228295713304,
+    0.07525979809678655,
+    0.0888342567854573,
+    0.10080782246031451,
+    0.111204061389056
+  ],
+  "order": [
+    "Sulfate",
+    "Solids",
+    "Turbidity",
+    "Conductivity",
+    "Trihalomethanes",
+    "Organic_carbon",
+    "Hardness",
+    "Chloramines",
+    "ph"
+  ],
+  "stability_order_original_rows": [
+    "Hardness",
+    "Solids",
+    "Turbidity",
+    "Organic_carbon",
+    "Conductivity",
+    "Trihalomethanes",
+    "Chloramines",
+    "ph",
+    "Sulfate"
+  ],
+  "stability_reduct_original_rows": [
+    "Hardness",
+    "Solids",
+    "Turbidity",
+    "Organic_carbon",
+    "Conductivity",
+    "Trihalomethanes",
+    "Chloramines",
+    "ph",
+    "Sulfate"
+  ]
+}

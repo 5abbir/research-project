@@ -1,0 +1,27 @@
+mode: smoke  (NOT reportable)
+train file: ../results/s2/s2_filled_train_L.csv  sha256: ce69fd61c5c6b35de13daaf579ea1b3e3e563a6754363dd6626b9f3ad1bd5167
+train rows given to SMOTE: 500; class counts {0: 305, 1: 195}; majority label 0 (305), minority label 1 (195)
+SMOTE: imblearn 0.14.2, defaults (k_neighbors=5, sampling_strategy='auto'), random_state=42, no scaling; features used: ['ph', 'Hardness', 'Solids', 'Chloramines', 'Sulfate', 'Conductivity', 'Organic_carbon', 'Trihalomethanes', 'Turbidity']
+output: ../results/s2/smote_smoke/s2_smote_train_L.csv  rows 610 (500 original + 110 synthetic)  sha256: ac8501509d9dda2c2cb1063dbbfab13bcf0de03fa56ed18c5086dba890d19da8
+test file: NOT opened (smoke mode)
+
+checks:
+PASS: originals come first and are unchanged (500 rows)
+PASS: number of synthetic rows = majority - minority (110 = 305 - 195)
+PASS: all synthetic rows belong to the minority class (label 1)
+PASS: classes balanced after SMOTE ({0: 305, 1: 305})
+PASS: no NaN in the resampled features ()
+PASS: synthetic values lie inside the original minority-class range of every feature (interpolation property) ()
+PASS: synthetic rows that exactly copy an original row (informational, expected about 0) (0 of 110)
+
+distance dominance (minority class):
+                 sd_minority_class  share_of_squared_distance_variance_pct
+ph                          1.3744                                    0.00
+Hardness                   36.5611                                    0.00
+Solids                   9206.9726                                   99.99
+Chloramines                 1.6878                                    0.00
+Sulfate                    40.3501                                    0.00
+Conductivity               87.1003                                    0.01
+Organic_carbon              2.9234                                    0.00
+Trihalomethanes            17.0691                                    0.00
+Turbidity                   0.7548                                    0.00

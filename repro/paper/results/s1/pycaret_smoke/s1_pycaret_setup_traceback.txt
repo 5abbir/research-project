@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/sabbir/research/repro/paper/code/r2_s1_pycaret.py", line 182, in main
+    exp.setup(data=train_df, test_data=test_df, **setup_kw)
+  File "/home/sabbir/research/env_pycaret/lib/python3.11/site-packages/pycaret/classification/oop.py", line 758, in setup
+    self._prepare_train_test(
+  File "/home/sabbir/research/env_pycaret/lib/python3.11/site-packages/pycaret/internal/preprocess/preprocessor.py", line 261, in _prepare_train_test
+    self.data = self._set_index(pd.concat([self.data, test_data]))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sabbir/research/env_pycaret/lib/python3.11/site-packages/pycaret/internal/preprocess/preprocessor.py", line 208, in _set_index
+    raise ValueError(
+ValueError: Invalid value for the index parameter. There are duplicate indices in the dataset. Use index=False to reset the index to RangeIndex.

@@ -1,0 +1,15 @@
+mode: smoke  (NOT reportable)
+filled train: ../results/s2/s2_filled_train_L.csv  sha256 ce69fd61c5c6b35de13daaf579ea1b3e3e563a6754363dd6626b9f3ad1bd5167
+SMOTE train: ../results/s2/smote_smoke/s2_smote_train_L.csv  sha256 ac8501509d9dda2c2cb1063dbbfab13bcf0de03fa56ed18c5086dba890d19da8
+test file: NOT opened (smoke mode)
+S2a fit rows 500 {0: 305, 1: 195}
+S2b fit rows 610 {0: 305, 1: 305}
+eval rows 300 {0: 183, 1: 117}
+
+checks:
+PASS: feature list excludes target, row_id and is_synthetic (9 features)
+PASS: same feature columns in S2a and S2b train files ()
+PASS: no NaN in any training feature ()
+PASS: synthetic rows have row_id -1 and originals have row_id >= 0 (110 synthetic)
+PASS: smoke eval rows are original train rows outside the smoke fit (300 rows)
+PASS: smoke eval row ids are a subset of the filled train file ()

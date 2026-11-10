@@ -1,0 +1,10 @@
+mode: smoke  (smoke results are NOT reportable)
+csv: ../raw_water.csv  sha256: 904004bde729bfe3d2e195f46343bceead09e32a0eb95bb8184e7e20e029b2bf
+seed 42; stratified 80/20; official train 2620, official test 656
+fit rows 400; eval rows 100
+fit rows with >=1 NaN: 144
+TEST ROWS USED: 0 (removed from memory after the split; guards asserted)
+preprocessing requested: NONE (imputation_type=None, normalize=False, fix_imbalance=False, feature_selection=False)
+per-model timeout: 60s
+PyCaret X_train rows = 400 (expected 400): OK
+NaN cells still present after PyCaret preprocessing (train): 171  -> no imputation happened

@@ -1,0 +1,35 @@
+File: raw_water.csv
+Shape (rows, cols): (3276, 10)   | paper: 3276 rows, 9 features + target
+Columns: ['ph', 'Hardness', 'Solids', 'Chloramines', 'Sulfate', 'Conductivity', 'Organic_carbon', 'Trihalomethanes', 'Turbidity', 'Potability']
+Duplicate rows: 0
+
+Class counts:
+  class 0: 1998
+  class 1: 1278
+  paper (Sect. 5.2): class 0 = 1998, class 1 = 1277
+
+Missing values (% of rows)   [paper Table 4 in brackets]
+  ph                14.99%  [14.99%]
+  Hardness           0.00%  
+  Solids             0.00%  
+  Chloramines        0.00%  
+  Sulfate           23.84%  [23.84%]
+  Conductivity       0.00%  
+  Organic_carbon     0.00%  
+  Trihalomethanes    4.95%  [4.95%]
+  Turbidity          0.00%  
+  Potability         0.00%  
+Rows with at least one missing value: 1265
+Complete rows: 2011
+
+Min / max per column (paper Table 2 looks garbled, so only print ours)
+  ph               0.0000  to  14.0000
+  Hardness         47.4320  to  323.1240
+  Solids           320.9426  to  61227.1960
+  Chloramines      0.3520  to  13.1270
+  Sulfate          129.0000  to  481.0306
+  Conductivity     181.4838  to  753.3426
+  Organic_carbon   2.2000  to  28.3000
+  Trihalomethanes  0.7380  to  124.0000
+  Turbidity        1.4500  to  6.7390
+  Potability       0.0000  to  1.0000

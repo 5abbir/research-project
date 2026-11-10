@@ -1,0 +1,59 @@
+=== 1. BASIC INFO ===
+Shape (rows, cols): (3276, 10)
+Column types:
+float64    9
+int64      1
+Name: count, dtype: int64
+
+First rows:
+         ph    Hardness        Solids  ...  Trihalomethanes  Turbidity  Potability
+0       NaN  204.890455  20791.318981  ...        86.990970   2.963135           0
+1  3.716080  129.422921  18630.057858  ...        56.329076   4.500656           0
+2  8.099124  224.236259  19909.541732  ...        66.420093   3.055934           0
+3  8.316766  214.373394  22018.417441  ...       100.341674   4.628771           0
+4  9.092223  181.101509  17978.986339  ...        31.997993   4.075075           0
+
+[5 rows x 10 columns]
+
+=== 2. MISSING VALUES ===
+Sulfate            23.8%
+ph                 15.0%
+Trihalomethanes     4.9%
+
+=== 3. DUPLICATES ===
+Exact duplicate rows: 0
+
+=== 4. TARGET ===
+Class counts:
+Potability
+0    1998
+1    1278
+Name: count, dtype: int64
+Class proportions:
+Potability
+0    0.61
+1    0.39
+Name: count, dtype: float64
+
+=== 5. SUSPICIOUS COLUMNS (possible leakage / useless) ===
+- 'Hardness': all values unique (ID-like? consider dropping)
+- 'Solids': all values unique (ID-like? consider dropping)
+- 'Chloramines': all values unique (ID-like? consider dropping)
+- 'Conductivity': all values unique (ID-like? consider dropping)
+- 'Organic_carbon': all values unique (ID-like? consider dropping)
+- 'Turbidity': all values unique (ID-like? consider dropping)
+
+=== 6. TRAIN / TEST SPLIT ===
+Seed=42, test_size=0.2, stratified=True
+Train: (2620, 10)  -> data_cls/train.csv
+Test:  (656, 10)  -> data_cls/test.csv
+Train class proportions:
+Potability
+0    0.61
+1    0.39
+Name: proportion, dtype: float64
+Test class proportions:
+Potability
+0    0.61
+1    0.39
+Name: proportion, dtype: float64

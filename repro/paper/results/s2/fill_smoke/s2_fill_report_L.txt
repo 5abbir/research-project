@@ -1,0 +1,18 @@
+mode: smoke  (NOT reportable)
+csv sha256: 904004bde729bfe3d2e195f46343bceead09e32a0eb95bb8184e7e20e029b2bf
+seed 42; official train 2620, official test 656
+rows given to the fill step: train-side 640, test-side 160; test rows used for fitting: 0
+TEST ROWS USED: 0 (smoke)
+missing cells in train-side rows: {'Trihalomethanes': 30, 'ph': 73, 'Sulfate': 156}; fill order (B5): ['Trihalomethanes', 'ph', 'Sulfate']
+complete columns at start: ['Hardness', 'Solids', 'Chloramines', 'Conductivity', 'Organic_carbon', 'Turbidity']
+B3 rule: Pearson r > 0.0 (r from pairwise-complete train-side rows, computed once before filling)
+grid: {'n_estimators': [100, 300], 'max_depth': [None, 10], 'min_samples_leaf': [1, 5, 25]}; 5-fold KFold(shuffle, seed 42); scoring neg_mean_squared_error
+
+column Trihalomethanes: fully-filled columns at this step ['Hardness', 'Solids', 'Chloramines', 'Conductivity', 'Organic_carbon', 'Turbidity']; r with Trihalomethanes: {'Hardness': 0.0515, 'Solids': -0.0938, 'Chloramines': 0.0353, 'Conductivity': -0.0064, 'Organic_carbon': 0.0762, 'Turbidity': 0.0039}; selected predictors ['Hardness', 'Chloramines', 'Organic_carbon', 'Turbidity']
+column ph: fully-filled columns at this step ['Hardness', 'Solids', 'Chloramines', 'Conductivity', 'Organic_carbon', 'Turbidity', 'Trihalomethanes']; r with ph: {'Hardness': 0.0875, 'Solids': -0.1016, 'Chloramines': -0.0433, 'Conductivity': 0.0138, 'Organic_carbon': 0.1015, 'Turbidity': 0.0181, 'Trihalomethanes': 0.0544}; selected predictors ['Hardness', 'Conductivity', 'Organic_carbon', 'Turbidity', 'Trihalomethanes']
+column Sulfate: fully-filled columns at this step ['Hardness', 'Solids', 'Chloramines', 'Conductivity', 'Organic_carbon', 'Turbidity', 'Trihalomethanes', 'ph']; r with Sulfate: {'Hardness': -0.1835, 'Solids': -0.1804, 'Chloramines': -0.0142, 'Conductivity': 0.0044, 'Organic_carbon': 0.0533, 'Turbidity': 0.0172, 'Trihalomethanes': 0.0026, 'ph': 0.0688}; selected predictors ['Conductivity', 'Organic_carbon', 'Turbidity', 'Trihalomethanes', 'ph']
+
+         column                                                     predictors  n_fit_rows                                                      best_params  cv_mse_best  cv_mse_mean_predictor  cv_r2_vs_mean_predictor  better_than_mean_predictor  n_filled_train  n_filled_test  observed_mean  observed_sd  filled_train_mean  filled_train_sd  filled_test_mean  seconds
+Trihalomethanes                  Hardness;Chloramines;Organic_carbon;Turbidity         610 {"max_depth": null, "min_samples_leaf": 25, "n_estimators": 300}   255.903391             252.847022                 -0.01209                       False              30              8        65.8874      15.9114            65.8880           2.5263           65.2716     12.5
+             ph Hardness;Conductivity;Organic_carbon;Turbidity;Trihalomethanes         567 {"max_depth": null, "min_samples_leaf": 25, "n_estimators": 300}     2.503584               2.516912                  0.00530                        True              73             29         7.1079       1.5850             7.1307           0.3462            7.0474     12.5
+        Sulfate       Conductivity;Organic_carbon;Turbidity;Trihalomethanes;ph         484 {"max_depth": null, "min_samples_leaf": 25, "n_estimators": 300}  1640.262718            1614.755420                 -0.01580                       False             156             38       333.6729      40.1930           333.5125           7.1033          335.6451     12.4

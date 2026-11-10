@@ -1,0 +1,10 @@
+env_*/
+.venv/
+__pycache__/
+*.pyc
+AutogluonModels/
+catboost_info/
+*.pkl
+*.joblib
+*.log
+*.pdf

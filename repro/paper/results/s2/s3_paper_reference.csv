@@ -1,0 +1,4 @@
+paper_table,model,precision_pct,sensitivity_pct,specificity_pct,f1_pct,accuracy_pct,use
+"Table 7 (phase 4, 'after filling null values and apply fuzzy rough set')",XGBoost,98.3,99.31,98.39,98.8,98.83,REFERENCE ONLY (paper Table 7); split/seed/versions/selection details unknown
+"Table 7 (phase 4, 'after filling null values and apply fuzzy rough set')",RandomForest,95.18,94.86,95.49,95.02,95.19,REFERENCE ONLY (paper Table 7); split/seed/versions/selection details unknown
+"Table 7 (phase 4, 'after filling null values and apply fuzzy rough set')",AdaBoost,90.96,93.15,91.31,92.04,92.21,REFERENCE ONLY (paper Table 7); split/seed/versions/selection details unknown

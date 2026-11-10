@@ -45,7 +45,7 @@ This project comprises **two parallel workstreams** on the Kaggle Water Potabili
 
 ### Workstream A: AutoML Comparison → HPO → XAI (Main Project)
 
-**Goal**: Compare AutoGluon and PyCaret on a binary classification task, select the best model, tune it with multiple hyperparameter optimisation strategies (Grid, Random, Bayesian/Optuna, Genetic), and apply Explainable AI (SHAP) on the tuning results. The target is a Q1 journal publication.
+**Goal**: Compare AutoGluon and PyCaret on a binary classification task, select the best model, tune it with multiple hyperparameter optimisation strategies (Grid, Random, Bayesian/Optuna, Genetic), and apply Explainable AI (SHAP) on the tuning results.
 
 **Research Framing** [P]: *"How does HPO optimiser choice change SHAP explanations/stability, across domains?"*
 

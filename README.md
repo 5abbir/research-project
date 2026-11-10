@@ -2,7 +2,7 @@
 
 > **Project**: AutoML Comparison, Hyperparameter Optimisation & Explainability (Water Potability Case Study) + Reproduction of Shehab et al. (2025)
 > 
-> **Researchers**: Nusrat Sharmin, Nafiz Al Anjim, Umme Hani Punam, M.Sabbir Hasnat Shaon
+> **Researchers**: Nusrat Sharmin, Nafiz Al Anjim, Umme Hani Punam, M. Sabbir Hasnat Shaon
 > 
 > **Status Labels**: [C] = Confirmed (verified from outputs), [P] = Provisional, [U] = Unverified
 

@@ -768,7 +768,7 @@ Bergstra & Bengio 2012, Probst et al. 2019, Lundberg & Lee 2017 (SHAP), Demšar 
 
 ### Data
 
-Aditya Kadiwal. (2020). *Water Quality* [Data set]. Kaggle. https://doi.org/10.34740/KAGGLE/DSV/1548804
+Aditya Kadiwal. (2020). *Water Quality* [Data set]. Kaggle. (https://www.kaggle.com/datasets/adityakadiwal/water-potability)
 
 ---
 
